@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="row m-2">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-2 my-3" *ngFor="let prduct of productList">
+                    
+                        <div class="card h-100 ">
+                            <div class="card-header text-nowrap text-truncate">
+                                <span class="badge rounded-pill bg-primary float-end">
+                                    <span class="float">
+                                        {{prduct["rating"]["rate"]}}
+                                    </span>
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
+                                      </svg>
+                                </span>
+                                <small class="w-80">{{prduct["title"]}}</small>
+                                
+                            </div>
+                            <div class="row p-3">
+                                <div class="col-2">
+
+                                </div>
+                                <div class="col-8">
+                                    <img class="card-img-top h-20" src={{prduct.image}} id="product-image" height="200px" width="300px" alt="Card image top">
+                                </div>
+                                <div class="col-2">
+                                    
+                                </div>
+                            </div>
+                            <div class="card-footer text-truncate">
+                                <button type="button" class="btn btn-outline-primary" (click)="addProduct(prduct)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                      </svg> 
+                                </button>
+                                <span class="badge rounded-pill bg-primary float-end m-2">{{ prduct["price"] | currency:'INR'}}</span>
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-cart [myCartService]="myCartService"></app-cart>
+</div>

@@ -1,0 +1,21 @@
+<div class="m-2">
+    <div class="card">
+        <div class="card-body">
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control" name="name" #name id="name" aria-describedby="helpId"
+                            placeholder="Enter Name">
+                        <small id="helpId" class="form-text text-muted">Enter Name</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="add(name.value)">Submit</button>
+                </div>
+            </div>
+            
+        </div>
+        <app-result [names]="names" ></app-result>
+    </div>
+
+</div>
