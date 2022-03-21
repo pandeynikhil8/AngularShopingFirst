@@ -11,6 +11,10 @@ import { ShopingComponent } from './shoping/shoping.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ShopingService } from './shoping/shoping.service';
 import { CartComponent } from './shoping/cart/cart.component';
+import { MyFormComponent } from './my-form/my-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyForm1Component } from './my-form/my-form1/my-form1.component';
+import { MyReactiveFormComponent } from './my-form/my-reactive-form/my-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,17 @@ import { CartComponent } from './shoping/cart/cart.component';
     ResultComponent,
     HomeComponent,
     ShopingComponent,
-    CartComponent
+    CartComponent,
+    MyFormComponent,
+    MyForm1Component,
+    MyReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ShopingService],
   bootstrap: [AppComponent]

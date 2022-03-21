@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-body">
+        <form #myform="ngForm" novalidate (ngSubmit)="onSubmit(myform.value)">
+            {{myform.value|json}}
+            <br>
+            {{myform.form.valid}}
+            <div class="form-group">
+                <label for="Name"></label>
+                <input type="text" class="form-control" [class.is-invalid]="name.invalid && name.touched"
+                    #name="ngModel" required name="name" id="name" aria-describedby="helpId" placeholder=""
+                    [(ngModel)]="u.name">
+                <small id="helpId" class="form-text text-muted">Enter name</small>
+                <br>
+                <small id="helpId" class="text-danger" [class.d-none]="name.valid || name.untouched">Enter name</small>
+                <div *ngIf="name.errors && (name.invalid && name.touched)">
+                    <small class="text-danger" *ngIf="name.errors['required']">
+                        Enter Name
+                    </small>
+                </div>
+            </div>
+            {{name.invalid}}
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" class="form-control" #email name="email" id="email" aria-describedby="emailHelpId"
+                    placeholder="" ngModel>
+                <small id="emailHelpId" class="form-text text-muted">Help text</small>
+            </div>
+            {{email.className}}
+            <div class="form-group">
+                <label for="topics"></label>
+                <select class="form-control" #temp="ngModel" (blur)="onSelectChange(temp.value)"
+                    (change)="onSelectChange(temp.value)" name="htmlTopic" id="htmlTopic" [(ngModel)]="u.topic">
+                    <option *ngFor="let t of topics">{{t}}</option>
+                </select>
+                <div *ngIf="temp.touched && selectHasError">
+                    <small class="text-danger">Have error</small>
+                </div>
+                {{selectHasError}}
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" #timePreference name="timePreference"
+                        id="timePreference" value="timePreference" checked ngModel>
+                    Morning
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" #timePreference name="timePreference"
+                        id="timePreference" value="timePreference" ngModel>
+                    Evening
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="subscribe" id="subscribe"
+                        value="checkedValue">
+                    Display value
+                </label>
+            </div>
+            <button type="submit" [disabled]="myform.form.invalid" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

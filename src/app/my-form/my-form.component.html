@@ -1,0 +1,37 @@
+<div class="card m-2 h-100">
+  <form class="m-3" #myform="ngForm">
+    {{myform.value|json}}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="" ngModel>
+      <small id="helpId" class="form-text text-muted">Help text</small>
+    </div>
+    <div class="form-group">
+      <label for="course"></label>
+      <select class="form-control" name="course" id="course" ngModel>
+        <option *ngFor="let c of topic">{{c}}</option>
+      </select>
+    </div>
+    <div class="form-check my-2">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="slot" id="slot" value="Morning" ngModel>
+        Morning
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="slot" id="slot" value="Evening" checked ngModel>
+        Evening
+      </label>
+    </div>
+    <div class="form-check my-2">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="sub" id="sub" value="checkedValue" ngModel>
+        India
+      </label>
+    </div>
+    <div class="my-4">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
